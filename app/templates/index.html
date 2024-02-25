@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        div {
+            text-align: center;
+            width: 100%;
+        }
+        form {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        input[type="text"] {
+            font-size: 16px;
+            padding: 10px;
+            margin-right: 10px;
+            width: 300px;
+        }
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+        table {
+            font-size: 18px;
+            margin-top: 20px;
+            width: 100%;
+        }
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <h1>Test Task</h1>
+
+    <h2>Enter GitHub Url</h2>
+    <form action="/git" method="post">
+        <input type="text" id="url" name="url" value="{{ input }}">
+        <button type="submit">Ok</button>
+    </form>
+    <table>
+        {% for project in data %}
+            <tr>
+                <td><a href="{{ project[0] }}"> {{ project[1] }} </a>{{ project[2] }} common contributors</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>
